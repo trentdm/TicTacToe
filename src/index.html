@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <link href="css/style.css" rel="stylesheet" type="text/css" media="screen, handheld, print, projection" />
+        <link href="css/style.mobile.css" rel="stylesheet" media="screen and (min-device-width:320px)">
+        <link href="css/style.css" rel="stylesheet" media="screen and (min-device-width:768px) and (min-width:768px), print, projection">
+        <!--[if lt IE 9]> <link href="css/desktop.css" rel="stylesheet" media="all"> <![endif]-->
+        <script type="text/javascript" src="scripts/jquery.min.js"></script>
+        <script type="text/javascript" src="scripts/knockout-2.1.0.js"></script>
+        <script type="text/javascript" src="scripts/main.js"></script>
+        <script type="text/javascript" src="scripts/minimax.js"></script>
+        <title>Tic-Tac-Toe!</title>
+    </head>
+    <body onload="init()">
+        <div id="container">  
+            <div id="header">
+                <div id="nameInput">
+                    <p>Your name: <input data-bind="value: playerName" /></p>
+                </div>
+                <h1>Let's Play Tic-Tac-Toe!</h1>                
+            </div>          
+
+            <div id="intro">
+                <h3>The rules are simple:</h3>
+                <p>Players alternate placing Xs and Os on the board until either (a) one player has three in a row, horizontally, vertically or diagonally; or (b) all nine squares are filled.</p>
+            </div>
+            
+            <div id="notifier">
+                <h3 id="notification" data-bind="text: notificationMessage"></h3>
+            </div>
+
+            <div id="board">
+                <div class="top left" data-bind="click: executeRound.bind($data, 0)"><p data-bind="text: tiles()[0]"></p></div>
+                <div class="top mid" data-bind="click: executeRound.bind($data, 1)"><p data-bind="text: tiles()[1]"></p></div>
+                <div class="top right" data-bind="click: executeRound.bind($data, 2)"><p data-bind="text: tiles()[2]"></p></div>
+
+                <div class="center left" data-bind="click: executeRound.bind($data, 3)"><p data-bind="text: tiles()[3]"></p></div>
+                <div class="center mid" data-bind="click: executeRound.bind($data, 4)"><p data-bind="text: tiles()[4]"></p></div>
+                <div class="center right" data-bind="click: executeRound.bind($data, 5)"><p data-bind="text: tiles()[5]"></p></div>
+
+                <div class="bottom left" data-bind="click: executeRound.bind($data, 6)"><p data-bind="text: tiles()[6]"></p></div>
+                <div class="bottom mid" data-bind="click: executeRound.bind($data, 7)"><p data-bind="text: tiles()[7]"></p></div>
+                <div class="bottom right" data-bind="click: executeRound.bind($data, 8)"><p data-bind="text: tiles()[8]"></p></div>
+            </div>
+
+            <div id="footer">
+                <a href="#" id="newGame" class="button gray bigrounded" onclick="newGame()">New Game</a>                 
+            </div>
+       </div>
+    </body>
+</html>
